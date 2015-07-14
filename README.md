@@ -35,9 +35,11 @@ var badge = null;
 var sound = null;
 var payload = null;
 
+// send a notification to a single device
 PushNotification.pushSingle(DeviceType.IOS, iosToken, message, badge, sound, payload);
 PushNotification.pushSingle(DeviceType.ANDROID, androidToken, message, badge, sound, payload);
 
+// send a notification to multiple devices
 PushNotification.prepare(message, badge, sound, payload);
 PushNotification.addTarget(DeviceType.IOS, iosToken);
 PushNotification.addTarget(DeviceType.ANDROID, androidToken);
