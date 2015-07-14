@@ -16,7 +16,7 @@ var PushNotification = {
 
     payload: null,
 
-    options: {apn: null, gcm: null};
+    options: {apn: null, gcm: null},
 
     init: function(options) {
         options = options || {};
@@ -67,7 +67,7 @@ var PushNotification = {
         if (!PushNotification.options.gcm || !tokens.length) return;
         var notification = new gcm.Message();
         notification.addData({message: message, payload: payload});
-        var sender = new gcm.Sender(pushNotification.options.gcm.sender);
+        var sender = new gcm.Sender(PushNotification.options.gcm.sender);
         sender.send(notification, tokens);
     },
 

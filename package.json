@@ -1,6 +1,6 @@
 {
   "name": "push-notification",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "push notification for apple push notification (APN) and google cloud messaging (GCM)",
   "author": {
     "name": "Dongwon Lim",
@@ -25,7 +25,11 @@
     "google",
     "nodejs"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "apn": "^1.7.4",
+    "expect.js": "^0.3.1",
+    "node-gcm": "^0.11.0"
+  },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.11.0",
