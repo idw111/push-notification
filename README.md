@@ -21,7 +21,6 @@ var path = require('path');
 // GCM: configure console to generate gcm.sender
 PushNotification.init({
 	apn: {
-		gateway: 'gateway.sandbox.push.apple.com',
 		cert: path.resolve('./keys/cert.pem'),
 		key: path.resolve('./keys/key.pem')
 	},

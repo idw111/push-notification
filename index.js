@@ -3,7 +3,7 @@
 var apn = require('apn');
 var gcm = require('node-gcm');
 
-var DeviceType: {
+var DeviceType = {
     IOS: 'apn',
     ANDROID: 'gcm'
 };
@@ -20,6 +20,7 @@ var PushNotification = {
 
     init: function(options) {
         options = options || {};
+        if (options.apn) options.apn.gateway = 'gateway.sandbox.push.apple.com';
         PushNotification.options = {apn: options.apn || null, gcm: options.gcm || null};
         PushNotification.clear();
     },
