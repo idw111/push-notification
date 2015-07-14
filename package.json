@@ -1,6 +1,6 @@
 {
   "name": "push-notification",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "push notification for apple push notification (APN) and google cloud messaging (GCM)",
   "author": {
     "name": "Dongwon Lim",

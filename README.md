@@ -58,11 +58,6 @@ PushNotification.push();
 - https://developers.google.com/cloud-messaging/gcm#senderid
 
 
-## Todo
-- write a document for configuring APN and GCM
-- build test code, and configure travis-ci
-
-
 ## License
 
 MIT © [Dongwon Lim]()
