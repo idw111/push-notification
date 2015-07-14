@@ -17,6 +17,8 @@ var PushNotification = require('push-notification');
 var DeviceType = PushNotification.DeviceType;
 var path = require('path');
 
+// APN: cert.pem, key.pem should be configured
+// GCM: configure console to generate gcm.sender
 PushNotification.init({
 	apn: {
 		gateway: 'gateway.sandbox.push.apple.com',
@@ -24,7 +26,7 @@ PushNotification.init({
 		key: path.resolve('./keys/key.pem')
 	},
 	gcm: {
-		sender: ''
+		sender: '[gcm-uid]'
 	}
 });
 
@@ -46,6 +48,11 @@ PushNotification.addTarget(DeviceType.ANDROID, androidToken);
 PushNotification.addTarget(DeviceType.ANDROID, anotherToken);
 PushNotification.push();
 ```
+
+
+## Todo
+- write a document for configuring APN and GCM
+- build test code, and configure travis-ci
 
 
 ## License
