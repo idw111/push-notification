@@ -13,9 +13,36 @@ $ npm install --save push-notification
 ## Usage
 
 ```js
-var pushNotification = require('push-notification');
+var PushNotification = require('push-notification');
+var DeviceType = PushNotification.DeviceType;
+var path = require('path');
 
-pushNotification('Rainbow');
+PushNotification.init({
+	apn: {
+		gateway: 'gateway.sandbox.push.apple.com',
+		cert: path.resolve('./keys/cert.pem'),
+		key: path.resolve('./keys/key.pem')
+	},
+	gcm: {
+		sender: ''
+	}
+});
+
+var iosToken = 'iphone-device-token';
+var androidToken = 'android-device-token';
+var message = 'some text to push...';
+var badge = null;
+var sound = null;
+var payload = null;
+
+PushNotification.pushSingle(DeviceType.IOS, iosToken, message, badge, sound, payload);
+PushNotification.pushSingle(DeviceType.ANDROID, androidToken, message, badge, sound, payload);
+
+PushNotification.prepare(message, badge, sound, payload);
+PushNotification.addTarget(DeviceType.IOS, iosToken);
+PushNotification.addTarget(DeviceType.ANDROID, androidToken);
+PushNotification.addTarget(DeviceType.ANDROID, anotherToken);
+PushNotification.push();
 ```
 
 
