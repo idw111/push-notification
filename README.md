@@ -52,10 +52,10 @@ PushNotification.push();
 ## Configuring APN and GCM
 
 ### APN
-- https://github.com/argon/node-apn/wiki/Preparing-Certificates
+- <https://github.com/argon/node-apn/wiki/Preparing-Certificates>
 
 ### GCM
-- https://developers.google.com/cloud-messaging/gcm#senderid
+- <https://developers.google.com/cloud-messaging/gcm#senderid>
 
 
 ## License

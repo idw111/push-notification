@@ -4,7 +4,7 @@ var PushNotification = require('../index.js');
 
 describe('push-notification node module', function () {
 
-    it('has trivial test', function() {
+    it('should be tested properly', function() {
         expect(PushNotification).to.be.ok();
     });
 
