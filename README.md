@@ -10,14 +10,6 @@ $ npm install --save push-notification
 ```
 
 
-## Configuring APN and GCM
-
-### APN
-- https://github.com/argon/node-apn/wiki/Preparing-Certificates
-
-### GCM
-- https://developers.google.com/cloud-messaging/gcm#senderid
-
 ## Usage
 
 ```js
@@ -55,6 +47,15 @@ PushNotification.addTarget(DeviceType.ANDROID, androidToken);
 PushNotification.addTarget(DeviceType.ANDROID, anotherToken);
 PushNotification.push();
 ```
+
+
+## Configuring APN and GCM
+
+### APN
+- https://github.com/argon/node-apn/wiki/Preparing-Certificates
+
+### GCM
+- https://developers.google.com/cloud-messaging/gcm#senderid
 
 
 ## Todo
