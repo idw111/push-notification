@@ -25,7 +25,7 @@ PushNotification.init({
 		key: path.resolve('./keys/key.pem')
 	},
 	gcm: {
-		sender: '[gcm-uid]'
+		apiKey: 'gcm-api-key'
 	}
 });
 
