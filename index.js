@@ -27,12 +27,12 @@ var PushNotification = {
 
     clear: function() {
         PushNotification.tokens = {apn: [], gcm: []};
-        PushNotification.payload = {message: '', badge: '', sound: '', payload: null};
+        PushNotification.payload = {title: '', message: '', badge: '', sound: '', payload: null};
     },
 
-    prepare: function(message, badge, sound, payload) {
+    prepare: function(title, message, badge, sound, payload) {
         PushNotification.clear();
-        PushNotification.payload = {message: message, badge: badge, sound: sound, payload: payload};
+        PushNotification.payload = {title: title, message: message, badge: badge, sound: sound, payload: payload};
     },
 
     addTarget: function(type, token) {
@@ -41,20 +41,22 @@ var PushNotification = {
     },
 
     push: function() {
+        var title = PushNotification.payload.title;
         var message = PushNotification.payload.message;
         var badge = PushNotification.payload.badge;
         var sound = PushNotification.payload.sound;
         var payload = PushNotification.payload.payload;
-        PushNotification.pushToAPN(PushNotification.tokens.apn, message, badge, sound, payload);
-        PushNotification.pushToGCM(PushNotification.tokens.gcm, message, badge, sound, payload);
+        PushNotification.pushToAPN(PushNotification.tokens.apn, title, message, badge, sound, payload);
+        PushNotification.pushToGCM(PushNotification.tokens.gcm, title, message, badge, sound, payload);
     },
 
-    pushToAPN: function(tokens, message, badge, sound, payload) {
+    pushToAPN: function(tokens, title, message, badge, sound, payload) {
         if (!PushNotification.options.apn || !tokens.length) return;
         var connection = new apn.Connection(PushNotification.options.apn);
         tokens.map(function(token) {
             var device = new apn.Device(token);
             var notification = new apn.Notification();
+            notification.title = title;
             notification.alert = message;
 			notification.badge = badge;
 			notification.sound = 'default';
@@ -63,17 +65,17 @@ var PushNotification = {
         });
     },
 
-    pushToGCM: function(tokens, message, badge, sound, payload) {
+    pushToGCM: function(tokens, title, message, badge, sound, payload) {
         if (!PushNotification.options.gcm || !tokens.length) return;
         var notification = new gcm.Message();
-        notification.addData({message: message, payload: payload});
+        notification.addData({title: title, message: message, payload: payload});
         var sender = new gcm.Sender(PushNotification.options.gcm.apiKey);
         sender.send(notification, tokens);
     },
 
-    pushSingle: function(type, token, message, badge, sound, payload) {
-        if (type === DeviceType.IOS) PushNotification.pushToAPN([token], message, badge, sound, payload);
-        else if (type === DeviceType.ANDROID) PushNotification.pushToGCM([token], message, badge, sound, payload);
+    pushSingle: function(type, token, title, message, badge, sound, payload) {
+        if (type === DeviceType.IOS) PushNotification.pushToAPN([token], title, message, badge, sound, payload);
+        else if (type === DeviceType.ANDROID) PushNotification.pushToGCM([token], title, message, badge, sound, payload);
     }
 
 };
