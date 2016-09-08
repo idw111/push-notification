@@ -58,7 +58,7 @@ var PushNotification = {
             notification.title = title;
             notification.alert = message;
 			notification.badge = badge;
-			notification.sound = 'default';
+			notification.sound = sound;
 			notification.payload = {payload: payload};
 			connection.pushNotification(notification, device);
         });
