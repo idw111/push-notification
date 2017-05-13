@@ -67,7 +67,7 @@ var PushNotification = {
     pushToGCM: function(tokens, title, message, badge, sound, payload) {
         if (!PushNotification.options.gcm || !tokens.length) return;
         var notification = new gcm.Message();
-        notification.addData({title: title, message: message, payload: payload});
+        notification.addData({title: title, message: message, payload: payload,soundName:sound});
         var sender = new gcm.Sender(PushNotification.options.gcm.apiKey);
         sender.send(notification, tokens);
     },
