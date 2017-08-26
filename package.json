@@ -1,6 +1,6 @@
 {
 	"name": "push-notification",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "push notification for apple push notification (APN) and google cloud messaging (GCM)",
 	"author": {
 		"name": "Dongwon Lim",
@@ -10,22 +10,9 @@
 		"type": "git",
 		"url": "https://github.com/idw111/push-notification.git"
 	},
-	"files": [
-		"lib"
-	],
+	"files": ["lib"],
 	"main": "lib/index.js",
-	"keywords": [
-		"push-notification",
-		"push notification",
-		"push",
-		"promise",
-		"notification",
-		"apn",
-		"gcm",
-		"apple",
-		"google",
-		"nodejs"
-	],
+	"keywords": ["push-notification", "push notification", "push", "promise", "notification", "apn", "gcm", "apple", "google", "nodejs"],
 	"devDependencies": {
 		"apn": "^2.1.5",
 		"coveralls": "^2.13.1",
