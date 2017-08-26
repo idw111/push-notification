@@ -47,6 +47,21 @@ pn.pushToGCM(['token1', 'token2', 'token3'], data); // push to multiple android 
 pn.push('device-token', data, DeviceType.ANDROID); // push to single android device
 pn.push(['token1', 'token2', 'token3'], data, DeviceType.ANDROID); // push to multiple android devices
 
+const device = { token: 'device-token', type: DeviceType.IOS };
+pn.push(device.token, data, device.type);
+
+const devices = [
+    { token: 'token1', type: DeviceType.IOS },
+    { token: 'token2', type: DeviceType.ANDROID }
+];
+Promise.all(devices.map(device => pn.push(device.token, data, device.type)));
+// or it might be more performant 
+const iosTokens = devices.filter(d => d.type === DeviceType.IOS).map(d => d.token);
+const andTokens = devices.filter(d => d.type === DeviceType.ANDROID).map(d => d.token);
+Promise.all([
+    iosTokens.length ? pn.push(iosTokens, data, DeviceType.IOS) : Promise.resolve(),
+    andTokens.length ? pn.push(andTokens, data, DeviceType.ANDROID) : Promise.resolve()
+]);
 ```
 
 push, pushToAPN, pushToGCM return Promise instance
