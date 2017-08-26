@@ -58,58 +58,70 @@ pn.push(...).then(res => console.log(res)).catch(err => console.log(err));
 ## Reference
 ### PushNotification(options)
 #### Arguments
-options
+
+**options**
 - apn
   - cert: path to cert.pem
   - key: path to key.pem
 - gcm
   - apiKey
+
 #### Returns
-(Promise)
+(object)
 
 ### pushToAPN(tokens, data)
 #### Arguments
-tokens
+
+**tokens**
 - (string) a device token
 - (array) array of device tokens
-data
+
+**data**
 - title
 - message
 - badge
 - sound
 - payload (object)
+
 #### Returns
-(void)
+(Promise) resolves push result
 
 ### pushToGCM(tokens, data)
 #### Arguments
-tokens
+
+**tokens**
 - (string) a device token
 - (array) array of device tokens
-data
+
+**data**
 - title
 - message
 - badge
 - sound
 - payload (object)
+
 #### Returns
-(Promise)
+(Promise) resolves push result
 
 ### push(tokens, data, type)
 #### Arguments
-tokens
+
+**tokens**
 - (string) a device token
 - (array) array of device tokens
-data
+
+**data**
 - title
 - message
 - badge
 - sound
 - payload (object)
-type
+
+**type**
 - (DeviceType) DeviceType.IOS or DeviceType.ANDROID
+
 #### Returns
-(Promise)
+(Promise) resolves push result
 
 ## Configuring APN and GCM
 
