@@ -87,56 +87,56 @@ pn.push(...).then(res => console.log(res)).catch(err => console.log(err));
 ### pushToAPN(tokens, data)
 #### Arguments
 
-- **tokens**
-  - (string) a device token
-  - (array) array of device tokens
+`tokens`
+- (string) a device token
+- (array) array of device tokens
 
-- **data**
-  - title
-  - message
-  - badge
-  - sound
-  - (object) payload 
+`data`
+- title
+- message
+- badge
+- sound
+- (object) payload 
 
 #### Returns
-(Promise) resolves push result
+`Promise` resolves push result
 
 ### pushToGCM(tokens, data)
 #### Arguments
 
-- **tokens**
-  - (string) a device token
-  - (array) array of device tokens
+`tokens`
+- (string) a device token
+- (array) array of device tokens
 
-- **data**
-  - title
-  - message
-  - badge
-  - sound
-  - (object) payload 
+`data`
+- title
+- message
+- badge
+- sound
+- (object) payload 
 
 #### Returns
-(Promise) resolves push result
+`Promise` resolves push result
 
 ### push(tokens, data, type)
 #### Arguments
 
-- **tokens**
-  - (string) a device token
-  - (array) array of device tokens
+`tokens`
+- (string) a device token
+- (array) array of device tokens
 
-- **data**
-  - title
-  - message
-  - badge
-  - sound
-  - (object) payload 
+`data`
+- title
+- message
+- badge
+- sound
+- (object) payload 
 
-- **type**
-  - (DeviceType) DeviceType.IOS or DeviceType.ANDROID
+`type`
+- (DeviceType) DeviceType.IOS or DeviceType.ANDROID
 
 #### Returns
-(Promise) resolves push result
+`Promise` resolves push result
 
 ## Configuring APN and GCM
 
