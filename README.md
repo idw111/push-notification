@@ -47,9 +47,6 @@ pn.pushToGCM(['token1', 'token2', 'token3'], data); // push to multiple android 
 pn.push('device-token', data, DeviceType.ANDROID); // push to single android device
 pn.push(['token1', 'token2', 'token3'], data, DeviceType.ANDROID); // push to multiple android devices
 
-const device = { token: 'device-token', type: DeviceType.IOS };
-pn.push(device.token, data, device.type);
-
 const devices = [
     { token: 'token1', type: DeviceType.IOS },
     { token: 'token2', type: DeviceType.ANDROID }
