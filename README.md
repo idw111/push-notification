@@ -74,15 +74,12 @@ pn.push(...).then(res => console.log(res)).catch(err => console.log(err));
 ### PushNotification(options)
 #### Arguments
 
-**options**
+`options`
 - apn
   - cert: path to cert.pem
   - key: path to key.pem
 - gcm
   - apiKey
-
-#### Returns
-(object)
 
 ### pushToAPN(tokens, data)
 #### Arguments
