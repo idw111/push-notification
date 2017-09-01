@@ -54,8 +54,11 @@ const devices = [
     { token: 'token1', type: DeviceType.IOS },
     { token: 'token2', type: DeviceType.ANDROID }
 ];
+
+// send notification to all devices
 Promise.all(devices.map(device => pn.push(device.token, data, device.type)));
-// or it might be more performant 
+
+// or this might be more performant 
 const iosTokens = devices.filter(d => d.type === DeviceType.IOS).map(d => d.token);
 const andTokens = devices.filter(d => d.type === DeviceType.ANDROID).map(d => d.token);
 Promise.all([
